@@ -33,6 +33,7 @@ import bnymellon.codekatas.coffeeshopkata.food.Donut;
 import bnymellon.codekatas.coffeeshopkata.food.DonutType;
 import bnymellon.codekatas.coffeeshopkata.food.SpreadType;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -62,7 +63,25 @@ public class CoffeeShopOrder
         // TODO: Implement the receipt generation logic here.
         // Hint: look at the Java 8 implementation in the jdk8 module,
         // and the link above to see how record patterns can be utilized here
-        return "";
+        List<String> receiptItems = new ArrayList<>();
+        double total = 0.0;
+        for (Item item : this.orderItems) {
+            if(item instanceof Bagel(BagelType bagelType, SpreadType spreadType, boolean toasted)){
+                receiptItems.add("Bagel: "+ bagelType +" $" + item.getPrice());
+                total += item.getPrice();
+            }
+            else if (item instanceof Donut(DonutType donutType)){
+                receiptItems.add("Donut: "+ donutType + " $" + item.getPrice());
+                total += item.getPrice();
+            }
+            else if (item instanceof Cookie(CookieType cookieType, boolean warmed)){
+                receiptItems.add("Cookie: " + cookieType +" $" + item.getPrice());
+                total += item.getPrice();
+            }
+        }
+        receiptItems.add("Total: $" + total);
+
+        return String.join("\n", receiptItems);
     }
 
     /**

@@ -26,37 +26,40 @@ package bnymellon.codekatas.coffeeshopkata.food;
  * @see <a href="https://openjdk.org/jeps/395">...</a>
  */
 // TODO: convert class to record
-public class Bagel implements BakeryItem
+public record Bagel(BagelType bagelType, SpreadType spreadType, boolean toasted) implements BakeryItem
 {
-    private final BagelType bagelType;
-    private final SpreadType spreadType;
-    private final boolean toasted;
-
-    public Bagel(BagelType bagelType, SpreadType spreadType, boolean toasted)
-    {
-        this.bagelType = bagelType;
-        this.spreadType = spreadType;
-        this.toasted = toasted;
-    }
-
     @Override
     public double getPrice()
     {
         return 2.50;
     }
+//    private final BagelType bagelType;
+//    private final SpreadType spreadType;
+//    private final boolean toasted;
+//
+////    public record Bagel(BagelType bagelType, SpreadType spreadType, boolean toasted){}
+//
+//    public Bagel(BagelType bagelType, SpreadType spreadType, boolean toasted)
+//    {
+//        this.bagelType = bagelType;
+//        this.spreadType = spreadType;
+//        this.toasted = toasted;
+//    }
 
-    public boolean isToasted()
-    {
-        return toasted;
-    }
 
-    public BagelType getBagelType()
-    {
-        return bagelType;
-    }
-
-    public SpreadType getSpreadType()
-    {
-        return spreadType;
-    }
+//
+//    public boolean isToasted()
+//    {
+//        return toasted;
+//    }
+//
+//    public BagelType getBagelType()
+//    {
+//        return bagelType;
+//    }
+//
+//    public SpreadType getSpreadType()
+//    {
+//        return spreadType;
+//    }
 }
